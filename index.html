@@ -1,54 +1,51 @@
 <!DOCTYPE html>
 <html>
 <link rel = "stylesheet" href="styles.css">
-<script src="app.js"></script>
-<div class="container">
 
-    <div class="calc-body">
-      <div class="calc-screen">
-        <div class="calc-operation">Previous </div>
-        <div class="calc-typed">2955<span class="blink-me">_</span></div>
-      </div>
-      <div class="calc-button-row">
-        <div class="button 1">PMT</div>
-        <div class="button l">PV</div>
-        <div class="button l">I/Y</div>
-        <div class="button l">PV</div>
-        <div class="button l">N</div>
-        <div class="button l">CPT</div>
-        <div class="button l">CLR</div>
-        <div class="button l">C/Y</div>
-      </div>
-      <div class="calc-button-row">
-        <div class="button c">C</div>
-        <div class="button l">≠</div>
-        <div class="button l">%</div>
-        <div class="button l">/</div>
-      </div>
-      <div class="calc-button-row">
-        <div class="button">7</div>
-        <div class="button">8</div>
-        <div class="button">9</div>
-        <div class="button l">x</div>
-      </div>
-      <div class="calc-button-row">
-        <div class="button">4</div>
-        <div class="button">5</div>
-        <div class="button">6</div>
-        <div class="button l">−</div>
-      </div>
-      <div class="calc-button-row">
-        <div class="button">1</div>
-        <div class="button">2</div>
-        <div class="button">3</div>
-        <div class="button l">+</div>
+  <div class="container">
+    <form class="calc-body" name="calc">
+
+      <div class="calc-screen" id="screen">
+        <div class="calc-operation" id="prev">Fin-tastic! Calculator</div>
+        <input type="text" name="answer" class="calc-typed" id="screen" />
       </div>
 
       <div class="calc-button-row">
-        <div class="button">.</div>
-        <div class="button">0</div>
-        <div class="button"><</div>
-        <div class="button l">=</div>
+        <input type ="button" class="button 1" value="TVM" id="TVM"/>
+        <input type="button" class="button 1" value="ATVM" id="ATVM"/>
+        <input type="button" class="button c" value="C" onclick="calc.answer.value =''"/>
+        <button type="button" class="button l" id="dark" >DM </button>    
+      </div>
+
+      <div class="calc-button-row">
+        <input type="button" class="button" value="7"  onclick="calc.answer.value +='7'"/> 
+        <input type="button" class="button"  value="8"  onclick="calc.answer.value +='8'"/> 
+        <input type="button" class="button" value="9"  onclick="calc.answer.value +='9'"/> 
+        <input type="button" class="button l" value="*"  onclick="calc.answer.value +='*'"/> 
+      </div>
+
+      <div class="calc-button-row">
+        <input type="button" class="button" class="button" value="4"  onclick="calc.answer.value +='4'"/> 
+        <input type="button" class="button" class="button" value="5"  onclick="calc.answer.value +='5'"/> 
+        <input type="button" class="button" class="button" value="6"  onclick="calc.answer.value +='6'"/> 
+        <input type="button" class="button l" class="button" value="-"  onclick="calc.answer.value +='-'"/> 
+      </div>
+
+      <div class="calc-button-row">
+        <input type="button" class="button" class="button" value="1"  onclick="calc.answer.value +='1'"/> 
+        <input type="button" class="button" class="button" value="2"  onclick="calc.answer.value +='2'"/> 
+        <input type="button" class="button" class="button" value="3"  onclick="calc.answer.value +='3'"/> 
+        <input type="button" class="button l" class="button" value="+"  onclick="calc.answer.value +='+'"/> 
+      </div>
+
+      <div class="calc-button-row">
+        <input type="button" class="button" class="button" value="."  onclick="calc.answer.value +='.'"/> 
+        <input type="button" class="button" class="button" value="0"  onclick="calc.answer.value +='0'"/> 
+        <input type="button" class="button" class="button" value="/"  onclick="calc.answer.value +='/'"/> 
+        <input type="button" class="button l" id="equal" value="=" onclick="calc.answer.value = eval(calc.answer.value)"/> 
         </div>
-    </div>
+
+    </form>
+<script src="app1.js"></script>
+  
 </html>
