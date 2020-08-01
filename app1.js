@@ -12,14 +12,14 @@ document.querySelector('#dark').addEventListener("click", function(){
 document.querySelector('#TVM').addEventListener("click", function(){
  
   //opens new window for TVM
-  window.open("file:///C:/Users/Mustafa%20Mohsin/Desktop/Web%20dev/Software%20eng/loans/index.html","__blank");
+  window.open("file:///C:/Users/Mustafa%20Mohsin/Desktop/Web%20dev/Software%20eng/TVM/index.html","__blank");
 
 });
 
 document.querySelector('#ATVM').addEventListener("click", function(){
  
   //opens new window for ATVM
-  window.open("file:///C:/Users/Mustafa%20Mohsin/Desktop/Web%20dev/Software%20eng/Aloans/index.html","__blank");
+  window.open("file:///C:/Users/Mustafa%20Mohsin/Desktop/Web%20dev/Software%20eng/ATVM/index.html","__blank");
 
 });
 

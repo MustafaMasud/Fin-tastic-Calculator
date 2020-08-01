@@ -31,28 +31,28 @@ function calculations() {
   if (!years.value){
     document.getElementById("type").textContent = "Years";
     result = Math.log(principal2/principal1)/Math.log(1+AccInterest);
-    ans.value = parseInt(result);
+    ans.value = Math.round(result*100)/100;
   }
 
   //Finds present value
   if(!amount.value){
     result = principal2/((1+AccInterest)**Periods);
     document.getElementById("type").textContent = "Present Value";
-    ans.value = parseInt(result);
+    ans.value = Math.round(result*100)/100;
   }
 
   //finds future value
   if(!Fvamount.value){
     result = principal1 * ((1+AccInterest)**Periods);
     document.getElementById("type").textContent = "Future Value";
-    ans.value = parseInt(result);
+    ans.value = Math.round(result*100)/100;
     }
 
   //finds interest value
   if(!interest.value){
     result = ((principal2/principal1)**(1/Periods))-1
     document.getElementById("type").textContent = "Interest %";
-    ans.value = parseInt(result*100);
+    ans.value = Math.round(result*100*100)/100;
   }
 
     // Show Results
