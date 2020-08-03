@@ -69,6 +69,9 @@ function calculations() {
  if(!Periods){
    count+=1
  }
+ if(!payments){
+   alert("Error")
+ }
  if (count>1){
    alert("Error")
  } 
@@ -103,13 +106,13 @@ function calculations() {
   //Implementation to find years
   if(!years.value){
     //finding years given PV
-    if(amount.value!=0){
+    if(Fvamount.value==0){
       result = (-1*Math.log(1-(principal1/payments)*(AccInterest)))/Math.log(1+(AccInterest))
       document.getElementById("type").textContent = "Years";
       ans.value= Math.round(result*100)/100
     }
     //finding years given FV
-    else if(Fvamount.value!=0){
+    else if(amount.value==0){
       result= Math.log(1+(principal2/payments)*(AccInterest))/Math.log(1+(AccInterest))
       document.getElementById("type").textContent = "Years";
       ans.value= Math.round(result*100)/100
