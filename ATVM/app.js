@@ -70,7 +70,7 @@ function calculations() {
    count+=1
  }
  if(!payments){
-   alert("Error")
+   count+=1
  }
  if (count>1){
    alert("Error")
@@ -98,8 +98,6 @@ function calculations() {
       result = principal2/FVIFA
       document.getElementById("type").textContent = "Payment";
       ans.value = Math.round(result*100)/100
-    }else{
-      alert("error")
     }
   }
 
