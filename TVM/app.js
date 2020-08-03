@@ -10,23 +10,59 @@ document.getElementById("loan-form").addEventListener("submit", function(e) {
  
   e.preventDefault();
 });
- 
+
+//Alert in the beginning of page
+alert("Please leave exactly one option blank, the option left blank will be calculated for you")
+
+
 // Calculate Results
 function calculations() {
  
+  //Declaring elements to select 
   const amount = document.getElementById("amount");
   const Fvamount = document.getElementById("fvamount");
   const interest = document.getElementById("interest");
   const years = document.getElementById("years");
   const ans = document.getElementById("answer");
+
+  //Declaring variables that are changeable
   var result;
+  var count =0;
   
- 
+  //changing elements to numbers
   const principal1 = parseFloat(amount.value);
   const principal2 = parseFloat(Fvamount.value);
   const AccInterest = parseFloat(interest.value) / 100 ;
   const Periods = parseFloat(years.value);
+  
+  //Error Catches
+  //Negative number errors
+  if(principal1<0 || principal2 <0 || AccInterest<0 || Periods<0){
+    alert("Please Input positive values")
+  }
+  //If all numbers exist error
+  else if (principal1 && principal2 && AccInterest && Periods){
+    alert("Please leave one field blank")
+  }
 
+  //Mix and match errors
+  if(!years.value){
+    count+=1
+  }
+  if(!amount.value){
+    count+=1
+  }
+  if(!Fvamount.value){
+    count+=1
+  }
+  if(!interest.value){
+   count+=1
+  }
+  if (count>1){
+    alert("Error")
+  }
+ 
+  
   //Finds the year variable
   if (!years.value){
     document.getElementById("type").textContent = "Years";
@@ -58,6 +94,6 @@ function calculations() {
     // Show Results
     document.getElementById("result").style.display = "block";
  
-    // Hide Loader
+    // Hide Loader gif
     document.getElementById("loading").style.display = "none";
 } 

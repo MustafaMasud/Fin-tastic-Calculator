@@ -10,22 +10,27 @@ document.getElementById("loan-form").addEventListener("submit", function(e) {
  
   e.preventDefault();
 });
+
+//Alert in the beginning of page
+alert("Please leave exactly one option blank, the option left blank will be calculated for you")
  
 // Calculate Results
 function calculations() {
  
-  //selects HTML and manipulates DOM
+  //Declaring elements to select
   const amount = document.getElementById("amount");
   const Fvamount = document.getElementById("fvamount");
   const interest = document.getElementById("interest");
   const years = document.getElementById("years");
   const ans = document.getElementById("answer");
-  const princip = document.getElementById("principal");
   const periodsPerYear = document.getElementById("periods");
   const Pmt = document.getElementById("payment")
+
+  //Declaring variables that are changeable
   var result;
+  var count = 0;
   
- 
+  //changing elements to numbers
   const principal1 = parseFloat(amount.value);
   const principal2 = parseFloat(Fvamount.value);
   const AccInterest = parseFloat(interest.value) / 100 ;
@@ -33,36 +38,59 @@ function calculations() {
   const Periods = parseFloat(periodsPerYear.value);
   const payments = parseFloat(Pmt.value);
 
-  //Calculations 
+  //constant calculations
   const totalPeriods = periodYear * Periods;
   const FVIFA = ((1+(AccInterest/Periods))**(totalPeriods) - 1)/(AccInterest/Periods);
   const PVIFA = (1-(1/((1+AccInterest/Periods)**(totalPeriods))))/(AccInterest/Periods);
-  var InterestR;
-  var payment;
-  var principP;
 
-
-
-  //error catches 
-  if(!years.value && !amount.value && !Fvamount.value && !interest.value){
-    alert("Please input the required fields!")
+  //Error catches 
+  //Negative number errors
+  if(principal1<0 || principal2 <0 || AccInterest<0 || Periods<0 || periodYear<0 ||payments<0){
+    alert("Please Input positive values")
   }
-  else if(!interest.value){
+  //If all numbers exist error
+  else if (principal1 && principal2  && AccInterest && Periods && periodYear && payments){
+    alert("Please leave one field blank")
+  }
+
+  //Mix and match errors
+  if(!years.value){
+    count+=1
+  }
+  if(!amount.value){
+    count+=1
+  }
+  if(!Fvamount.value){
+    count+=1
+  }
+ if(!interest.value){
+   count+=1
+ }
+ if(!Periods){
+   count+=1
+ }
+ if (count>1){
+   alert("Error")
+ } 
+  
+  //error catch if interest field is blank
+  if(!AccInterest){
     alert("Please input Interest")
   }
-  else if(!Periods){
-    alert("Please input Periods")
+  //error catch if Period per year field is blank
+  if(!Periods){
+    alert("Please input Periods per year")
   }
-  if(Fvamount.value != 0 && amount.value != 0 && !Pmt.value){
-    alert("Please input either FV or PV to calculate PMT, but not both")
-  }
-  
+  //Implentation to find payment
   if(!Pmt.value){
+
+    //payment given PV
     if(Fvamount.value==0){
     result = principal1/PVIFA
     document.getElementById("type").textContent = "Payment";
     ans.value = Math.round(result*100)/100
     }
+    //payment given FV
     else if (amount.value==0){
       result = principal2/FVIFA
       document.getElementById("type").textContent = "Payment";
@@ -72,12 +100,15 @@ function calculations() {
     }
   }
 
+  //Implementation to find years
   if(!years.value){
+    //finding years given PV
     if(amount.value!=0){
       result = (-1*Math.log(1-(principal1/payments)*(AccInterest)))/Math.log(1+(AccInterest))
       document.getElementById("type").textContent = "Years";
       ans.value= Math.round(result*100)/100
     }
+    //finding years given FV
     else if(Fvamount.value!=0){
       result= Math.log(1+(principal2/payments)*(AccInterest))/Math.log(1+(AccInterest))
       document.getElementById("type").textContent = "Years";
@@ -94,11 +125,6 @@ function calculations() {
       document.getElementById("type").textContent = "Present Value";
       ans.value = Math.round(result*100)/100;
     
-      //finds the principal payoff
-      InterestR = ans.value * (AccInterest/Periods);
-      payment = ans.value / PVIFA;
-      principP = ans.value - ( payment- InterestR);
-      princip.value = parseInt(principP);
   }
 
   //Finds future value
@@ -107,29 +133,13 @@ function calculations() {
     result = payments * FVIFA;
     document.getElementById("type").textContent = "Future Value"
     ans.value = Math.round(result*100)/100;
-
-    //finds the prinicipal payoff
-    InterestR = principal1 * (AccInterest/Periods);
-    payment = principal1 / PVIFA;
-    principP = principal1 - (payment-InterestR);
-    princip.value = parseInt(principP);
   }
 
  
     // Show Results
     document.getElementById("result").style.display = "block";
  
-    // Hide Loader
+    // Hide Loader gif
     document.getElementById("loading").style.display = "none";
 } 
 
-
-/* else if (!years.value){
-    alert("Please add the number of years");
-  }
-  else if(!interest.value){
-    alert("Please add the Interest amount");
-  }
-  else if(!Fvamount.value && !amount.value){
-    alert("Please input either FV or PV")
-  }*/
