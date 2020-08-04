@@ -1,3 +1,21 @@
+//Contains all the logic for button functionality on the calculator
+//Programmer: Mustafa Mohsin
+//Date Coded: July 17, 2020
+//Date Approved: August 3, 2020
+//Approved by: All group members
+//Arguments: The arguments are the event listeners that activate the code, and the files accessed.
+//Variables: variables include “value”, “letters”, and “i” 
+//Files accessed:TVM/Index.html, ATVM/index.html.
+//Files Changed: None
+//Input/Output: Event Listeners await mouse and/or keyboard input, new window opens for TVM and ATVM functions.
+//Error handling: loop to determine if a string character is added in the calculator input for evaluation, this will send a pop up alerting the user.
+/*List of previous modifications and who approved: 
+1. Modifying buttons - Approved by all
+2. Adding functionality to buttons - Approved by all
+3. Implementing “eval” function to calculate input - Approved by all
+4. Adding the dark mode button - Approved by all */
+//any known faults: None
+ 
 
 //Listening for the equal button being clicked
 document.querySelector('#dark').addEventListener("click", function(){

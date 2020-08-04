@@ -1,3 +1,21 @@
+/*
+//Contains the code for TVM GUI formatting
+//Programmer: Mustafa Mohsin
+//Date Coded: July 24, 2020
+//Date Approved: Aug 3, 2020
+//Approved by: All group members
+//Arguments: the arguments are specific to each container, button etc. and have exact values to make the calculator GUI be consistent across any device
+//Variables: all variables are extended from the HTML file and are stylised in the CSS file
+//Files accessed: index.html
+//Files Changed: None
+//Input/Output: Changes the style of Index.html variables
+//Error handling: Backup fonts initialized if browser does not support the initial fonts.
+//List of previous modifications and who approved:
+1.Changing basic colours - Approved by all
+2.Modifying size - Approved by all
+3.Modifying text colour - Approved by all
+Adding more styles to the GUI - Approved by all
+//Any known faults: None*/
 
 body {
   background: #f3f3f3;

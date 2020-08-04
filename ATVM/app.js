@@ -1,3 +1,25 @@
+//This file supports the ATVM financial function by opening a new tab for the user to input their calculation
+//Programmer: Mustafa Mohsin
+//Date Coded: July 25, 2020
+//Date Approved: Aug 3, 2020
+//Approved by: All Group Members
+//Arguments: Event listeners as well as the variables to be calculated (principal1, principal2, periodYear, AccInterest, Periods, payments, totalPeriods, FVIFA, and PVIFA).
+//Constants: amount, Fvamount, interest, years, ans, periodsPerYear, Pmt, principal1, principal2, periodYear, AccInterest, Periods, payments, totalPeriods, FVIFA, and PVIFA
+//Variables: result, count
+//Files accessed: index.html, styles.css
+//Files Changed: None
+//Input: event listeners used for mouse click, keyboard used to enter values( amount, Fvamount, interest, years, ans, periodsPerYear, Pmt)
+//Output: error messages,instructions displayed and the result of calculations(result)
+//Error handling: Negative numbers, blank values and no fields left blank cause an error message
+//List of previous modifications and who approved:
+//1.Implemented optimizing error handling - Approved by all
+//2.Removing redundant code - Approved by all
+//3.Small bug fixes such as displaying values - Approved by all
+//Any known faults: None
+
+
+
+
 // Listen for Submit
 document.getElementById("loan-form").addEventListener("submit", function(e) {
   // Hide Results
